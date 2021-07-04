@@ -6,5 +6,4 @@ export default {
         PORT: process.env.REDIS_PORT || 6379,
         HOST: process.env.REDIS_URL || 'localhost'
     },
-    QR_SECRET: process.env.QR_SECRET
 }

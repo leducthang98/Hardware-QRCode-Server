@@ -1,3 +1,4 @@
+import { checkQRExist } from "../component/common/CommonDAL";
 import CommonConfig from "../config/CommonConfig";
 import { ERRORS } from "../constant/Errors";
 import * as jwtUtil from '../util/Jwt';
@@ -23,7 +24,9 @@ export const jwtFilter = async (req, res, next) => {
 
 export const requireQrSecret = async (req, res, next) => {
     const { qrsecret } = req.headers;
-    if (qrsecret == CommonConfig.QR_SECRET) {
+    let isQrValid = await checkQRExist(qrsecret)
+    console.log(isQrValid)
+    if (isQrValid) {
         next()
     } else {
         next(ERRORS.UNAUTHORIZED_ERROR)
