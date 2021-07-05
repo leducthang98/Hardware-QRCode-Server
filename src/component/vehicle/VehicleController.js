@@ -6,8 +6,11 @@ export const getAllVehicle = async (req, res) => {
     res.send(commonResponse(vehicles))
 }
 
-export const getByQrCode = async (req, res) => {
+export const getByQrCode = async (req, res, next) => {
     const response = await getByQrCodeDAL(req?.query?.qrcode)
-    res.send(commonResponse(response))
-
+    if (response.length == 0) {
+        next('Error')
+    } else {
+        res.send(commonResponse(response))
+    }
 }
