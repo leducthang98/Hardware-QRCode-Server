@@ -1,5 +1,5 @@
 export default {
-    PORT: process.env.SERVER_PORT || 8080,
+    PORT: process.env.SERVER_PORT || 4567,
     DATABASE_URL: process.env.DATABASE_URL,
     JWT_SECRET: process.env.JWT_SECRET || 'leducthang98',
     REDIS: {
