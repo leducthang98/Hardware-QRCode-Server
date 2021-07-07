@@ -8,7 +8,7 @@ export const writeLogDAL = async (data) => {
 }
 
 export const getLogDAL = async () => {
-    const sql = 'select * from system_log order by timestamp desc';
+    const sql = 'select * from system_log order by timestamp desc limit 20';
     const result = await dbUtil.query(sql);
     return result;
 }
