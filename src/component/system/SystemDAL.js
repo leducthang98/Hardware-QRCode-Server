@@ -3,7 +3,7 @@ import * as dbUtil from '../../util/Database';
 
 export const writeLogDAL = async (data) => {
     const sql = 'insert into system_log (timestamp,user,command) values (?,?,?)';
-    const result = await dbUtil.query(sql, [moment(moment.now()).format('YYYY-MM-DD'), data.user, data.command]);
+    const result = await dbUtil.query(sql, [moment(moment.now()).format('YYYY-MM-DD hh:mm:ss'), data.user, data.command]);
     return result;
 }
 
